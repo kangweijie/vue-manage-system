@@ -1,10 +1,4 @@
-var greeting = "您好，";
-var button = document.getElementById("mybutton");
-button.person_name = "Bob";
-button.addEventListener(
-  "click",
-  function () {
-    alert(greeting + button.person_name + "。");
-  },
-  false
-);
+var style = document.createElement("style");
+style.type = "text/css";
+style.innerHTML = "img{ display:none!important }";
+document.getElementsByTagName("head").item(0).appendChild(style);
