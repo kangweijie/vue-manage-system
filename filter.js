@@ -1,23 +1,8 @@
-var style = document.createElement("style");
-style.type = "text/css";
-style.innerHTML = "img{ display:none!important }";
-
-var greeting = "您好啊，";
-var button = document.getElementById("mybutton");
-button.person_name = "Roberto";
-button.addEventListener(
-  "click",
-  function () {
-    document.getElementsByTagName("head").item(0).appendChild(style);
-    alert(greeting + button.person_name + "。");
-    console.log("ok");
-  },
-  false
-);
-
-chrome.browserAction.onClicked.addListener(function (tab) {
+chrome.browserAction.onClicked.addListener(function(tab) {
+  // No tabs or host permissions needed!
+  console.log('Turning ' + tab.url + ' red!');
   chrome.tabs.executeScript({
-    code: 'alert("test")',
+    code: 'document.body.style.backgroundColor="red"'
   });
 });
 
